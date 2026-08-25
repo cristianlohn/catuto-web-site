@@ -1,0 +1,35 @@
+### ===================================================================
+### TESTES DE API - CATUTO PLATFORM (REST Client / Thunder Client)
+### ===================================================================
+
+@baseUrl = http://localhost:3000
+@cronSecret = catuto_secret_monitor_token_2026
+
+### 1. Testar Verificação de Uptime (Cron Endpoint - Requer CRON_SECRET)
+GET {{baseUrl}}/api/cron/uptime-check
+Authorization: Bearer {{cronSecret}}
+
+### 2. Testar Verificação de Uptime sem Token (Deve retornar 401 Unauthorized)
+GET {{baseUrl}}/api/cron/uptime-check
+
+### 3. Testar Revalidação On-Demand de Cache ISR
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+Authorization: Bearer {{cronSecret}}
+
+{
+  "path": "/"
+}
+
+### 4. Testar Submissão de Formulário de Contato (Simulação de Lead)
+POST {{baseUrl}}/api/contact
+Content-Type: application/json
+
+{
+  "name": "Cliente Teste",
+  "email": "contato.teste@empresa.com.br",
+  "phone": "11987654321",
+  "company": "Empresa Teste B2B",
+  "service": "Website Institucional B2B",
+  "message": "Mensagem de teste para validar o disparo de notificações e salvamento no Supabase."
+}
