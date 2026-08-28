@@ -158,6 +158,11 @@ export function Footer({ settings }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
               <li>
+                <Link href="#clientes" className="hover:text-emerald-400 transition-colors">
+                  Nossos Clientes & Cases
+                </Link>
+              </li>
+              <li>
                 <Link href="#sobre" className="hover:text-emerald-400 transition-colors">
                   Quem Somos & Valores
                 </Link>

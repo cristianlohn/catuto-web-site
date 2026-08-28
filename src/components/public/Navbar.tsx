@@ -66,6 +66,12 @@ export function Navbar({ settings }: NavbarProps) {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-7">
           <Link
+            href="#clientes"
+            className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
+          >
+            Clientes
+          </Link>
+          <Link
             href="#servicos"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
@@ -143,6 +149,13 @@ export function Navbar({ settings }: NavbarProps) {
       {isOpen && (
         <div className="md:hidden bg-[#080c15] border-b border-zinc-800 px-4 pt-3 pb-6 animate-in slide-in-from-top-3 duration-200">
           <div className="flex flex-col gap-3">
+            <Link
+              href="#clientes"
+              onClick={() => setIsOpen(false)}
+              className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
+            >
+              Nossos Clientes
+            </Link>
             <Link
               href="#servicos"
               onClick={() => setIsOpen(false)}

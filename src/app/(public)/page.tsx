@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
 import { getSiteSettings } from '@/lib/site-settings'
+import { getClientsAction } from '@/app/actions/clients'
 import { Hero } from '@/components/public/Hero'
 import { Metrics } from '@/components/public/Metrics'
+import { ClientsShowcase } from '@/components/public/ClientsShowcase'
 import { BentoServices } from '@/components/public/BentoServices'
 import { AboutSection } from '@/components/public/AboutSection'
 import { ComparisonSection } from '@/components/public/ComparisonSection'
@@ -37,7 +39,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const settings = await getSiteSettings()
+  const [settings, clientsRes] = await Promise.all([
+    getSiteSettings(),
+    getClientsAction(true),
+  ])
+
+  const activeClients = clientsRes.data || []
 
   return (
     <div className="flex flex-col w-full">
@@ -47,19 +54,22 @@ export default async function HomePage() {
       {/* 2. Métricas de Impacto no Negócio */}
       <Metrics />
 
-      {/* 3. O que Fazemos (Bento Grid de Serviços) */}
+      {/* 3. Prova Social: Empresas que Confiam na Nossa Estrutura */}
+      <ClientsShowcase clients={activeClients} />
+
+      {/* 4. O que Fazemos (Bento Grid de Serviços) */}
       <BentoServices />
 
-      {/* 4. Quem Somos & Nossa Essência (Sobre Nós / Missão / Visão / Valores) */}
+      {/* 5. Quem Somos & Nossa Essência (Sobre Nós / Missão / Visão / Valores) */}
       <AboutSection />
 
-      {/* 5. Comparativo: Site Comum vs Estrutura Catuto */}
+      {/* 6. Comparativo: Site Comum vs Estrutura Catuto */}
       <ComparisonSection />
 
-      {/* 6. Perguntas Frequentes (Tire Suas Dúvidas) */}
+      {/* 7. Perguntas Frequentes (Tire Suas Dúvidas) */}
       <FAQSection />
 
-      {/* 7. Formulário de Orçamento Rápido & Contato */}
+      {/* 8. Formulário de Orçamento Rápido & Contato */}
       <ContactFormSection settings={settings} />
     </div>
   )

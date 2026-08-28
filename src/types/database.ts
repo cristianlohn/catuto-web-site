@@ -162,6 +162,48 @@ export type Database = {
         }
         Relationships: []
       }
+      clients: {
+        Row: {
+          id: string
+          name: string
+          logo_url: string | null
+          website_url: string
+          category: string | null
+          description: string | null
+          tags: string[] | null
+          is_active: boolean
+          display_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          logo_url?: string | null
+          website_url: string
+          category?: string | null
+          description?: string | null
+          tags?: string[] | null
+          is_active?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          logo_url?: string | null
+          website_url?: string
+          category?: string | null
+          description?: string | null
+          tags?: string[] | null
+          is_active?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_pageviews: {
         Row: {
           id: string
@@ -244,6 +286,7 @@ export interface SiteSettings {
   updated_at?: string
 }
 
+export type Client = Database['public']['Tables']['clients']['Row']
 export type ClientMonitor = Database['public']['Tables']['client_monitors']['Row']
 export type UptimeLog = Database['public']['Tables']['uptime_logs']['Row']
 export type ContactMessage = Database['public']['Tables']['contact_messages']['Row']

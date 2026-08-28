@@ -11,6 +11,7 @@ import {
   Globe,
   LogOut,
   ChevronRight,
+  Building2,
 } from 'lucide-react'
 
 interface AdminSidebarProps {
@@ -26,6 +27,12 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
       href: '/admin/configuracoes',
       icon: Sliders,
       description: 'Logotipo, textos, contatos e serviços',
+    },
+    {
+      title: 'Nossos Clientes',
+      href: '/admin/clientes',
+      icon: Building2,
+      description: 'Logos, links e vitrine de projetos',
     },
     {
       title: 'Status & Uptime',
