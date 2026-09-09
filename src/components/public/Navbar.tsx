@@ -11,7 +11,9 @@ import {
   Menu,
   X,
   ArrowRight,
+  ExternalLink,
 } from 'lucide-react'
+import { FLOW_APP_URL } from '@/config/flow'
 
 interface NavbarProps {
   settings: SiteSettings
@@ -64,39 +66,48 @@ export function Navbar({ settings }: NavbarProps) {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-7">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6">
           <Link
-            href="#clientes"
+            href="/#clientes"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Clientes
           </Link>
           <Link
-            href="#servicos"
+            href="/#servicos"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Serviços
           </Link>
           <Link
-            href="#sobre"
+            href="/flow"
+            className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium flex items-center gap-1.5 group"
+          >
+            <span>Catuto Flow</span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold group-hover:bg-emerald-500/20 transition-colors">
+              App
+            </span>
+          </Link>
+          <Link
+            href="/#sobre"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Sobre Nós
           </Link>
           <Link
-            href="#comparativo"
+            href="/#comparativo"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Por que Nós
           </Link>
           <Link
-            href="#faq"
+            href="/#faq"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Dúvidas
           </Link>
           <Link
-            href="#contato"
+            href="/#contato"
             className="text-sm text-zinc-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Contato
@@ -104,7 +115,19 @@ export function Navbar({ settings }: NavbarProps) {
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2.5">
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium gap-1.5 transition-colors"
+            asChild
+          >
+            <a href={FLOW_APP_URL} target="_blank" rel="noopener noreferrer">
+              <span>Entrar no Flow</span>
+              <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
+            </a>
+          </Button>
+
           {whatsappLink && (
             <Button
               variant="ghost"
@@ -124,7 +147,7 @@ export function Navbar({ settings }: NavbarProps) {
             className="shadow-md shadow-emerald-500/20 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm"
             asChild
           >
-            <Link href="#contato">
+            <Link href="/#contato">
               Pedir Orçamento
               <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
             </Link>
@@ -150,42 +173,52 @@ export function Navbar({ settings }: NavbarProps) {
         <div className="md:hidden bg-[#080c15] border-b border-zinc-800 px-4 pt-3 pb-6 animate-in slide-in-from-top-3 duration-200">
           <div className="flex flex-col gap-3">
             <Link
-              href="#clientes"
+              href="/#clientes"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
               Nossos Clientes
             </Link>
             <Link
-              href="#servicos"
+              href="/#servicos"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
               Serviços
             </Link>
             <Link
-              href="#sobre"
+              href="/flow"
+              onClick={() => setIsOpen(false)}
+              className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-emerald-400 flex items-center justify-between"
+            >
+              <span>Catuto Flow (Gestão Ágil)</span>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold">
+                Novo
+              </span>
+            </Link>
+            <Link
+              href="/#sobre"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
               Sobre Nós
             </Link>
             <Link
-              href="#comparativo"
+              href="/#comparativo"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
               Por que Nós (Comparativo)
             </Link>
             <Link
-              href="#faq"
+              href="/#faq"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
               Perguntas Frequentes (Dúvidas)
             </Link>
             <Link
-              href="#contato"
+              href="/#contato"
               onClick={() => setIsOpen(false)}
               className="text-sm font-medium py-2.5 border-b border-zinc-800/60 text-zinc-200 hover:text-emerald-400"
             >
@@ -194,11 +227,21 @@ export function Navbar({ settings }: NavbarProps) {
 
             <div className="pt-3 flex flex-col gap-2.5">
               <Button
+                variant="outline"
+                className="w-full border-zinc-800 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 gap-2 text-xs font-medium"
+                asChild
+              >
+                <a href={FLOW_APP_URL} target="_blank" rel="noopener noreferrer">
+                  <span>Entrar no Flow</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
+                </a>
+              </Button>
+              <Button
                 className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold"
                 asChild
                 onClick={() => setIsOpen(false)}
               >
-                <Link href="#contato">Solicitar Orçamento Grátis</Link>
+                <Link href="/#contato">Solicitar Orçamento Grátis</Link>
               </Button>
               {whatsappLink && (
                 <Button

@@ -12,7 +12,10 @@ import {
   LogOut,
   ChevronRight,
   Building2,
+  Kanban,
+  ExternalLink,
 } from 'lucide-react'
+import { FLOW_APP_URL } from '@/config/flow'
 
 interface AdminSidebarProps {
   userEmail?: string | null
@@ -95,6 +98,33 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
               </Link>
             )
           })}
+
+          {/* Atalho Especial para o Catuto Flow */}
+          <div className="pt-3">
+            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider px-3 mb-2 block">
+              Ferramentas Ágeis
+            </span>
+            <a
+              href={FLOW_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium transition-all group text-zinc-300 hover:text-white hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-emerald-500/40"
+            >
+              <Kanban className="w-4 h-4 shrink-0 text-emerald-400 group-hover:rotate-6 transition-transform" />
+              <div className="flex flex-col flex-1 min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="truncate font-semibold text-zinc-200 group-hover:text-white">Catuto Flow</span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">
+                    App
+                  </span>
+                </div>
+                <span className="text-[10px] truncate text-zinc-400 group-hover:text-zinc-300">
+                  Board ágil & sprints diárias
+                </span>
+              </div>
+              <ExternalLink className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+            </a>
+          </div>
         </nav>
       </div>
 

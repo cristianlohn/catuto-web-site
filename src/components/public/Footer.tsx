@@ -117,34 +117,45 @@ export function Footer({ settings }: FooterProps) {
             )}
           </div>
 
-          {/* Coluna 3: Nossos Serviços */}
+          {/* Coluna 3: Soluções & Produtos */}
           <div>
             <h4 className="font-bold text-xs uppercase tracking-wider text-white mb-3 sm:mb-4 font-heading">
-              Nossos Serviços
+              Soluções & Produtos
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
               <li>
-                <Link href="#servicos" className="hover:text-emerald-400 transition-colors">
+                <Link
+                  href="/flow"
+                  className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium flex items-center gap-1.5"
+                >
+                  <span>Catuto Flow</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 font-semibold">
+                    Plataforma Ágil
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#servicos" className="hover:text-emerald-400 transition-colors">
                   Websites Institucionais
                 </Link>
               </li>
               <li>
-                <Link href="#servicos" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#servicos" className="hover:text-emerald-400 transition-colors">
                   Landing Pages para Vendas
                 </Link>
               </li>
               <li>
-                <Link href="#servicos" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#servicos" className="hover:text-emerald-400 transition-colors">
                   Otimização de Velocidade
                 </Link>
               </li>
               <li>
-                <Link href="#servicos" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#servicos" className="hover:text-emerald-400 transition-colors">
                   Destaque no Google (SEO)
                 </Link>
               </li>
               <li>
-                <Link href="#servicos" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#servicos" className="hover:text-emerald-400 transition-colors">
                   Monitoramento 24/7
                 </Link>
               </li>
@@ -158,27 +169,27 @@ export function Footer({ settings }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
               <li>
-                <Link href="#clientes" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#clientes" className="hover:text-emerald-400 transition-colors">
                   Nossos Clientes & Cases
                 </Link>
               </li>
               <li>
-                <Link href="#sobre" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#sobre" className="hover:text-emerald-400 transition-colors">
                   Quem Somos & Valores
                 </Link>
               </li>
               <li>
-                <Link href="#comparativo" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#comparativo" className="hover:text-emerald-400 transition-colors">
                   Por que a Catuto
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#faq" className="hover:text-emerald-400 transition-colors">
                   Dúvidas Frequentes
                 </Link>
               </li>
               <li>
-                <Link href="#contato" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#contato" className="hover:text-emerald-400 transition-colors">
                   Pedir Orçamento Grátis
                 </Link>
               </li>
