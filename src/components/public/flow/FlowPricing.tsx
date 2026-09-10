@@ -103,10 +103,11 @@ const PLANS: Plan[] = [
     billingNoteAnnual: 'Contrato personalizado & SLA dedicado',
     featuresHeader: 'Tudo do Pro, mais:',
     features: [
-      'Instância dedicada ou on-premise',
-      'SSO / SAML corporativo',
-      'Auditoria de logs e SLA de 99.9%',
-      'Consultoria técnica e setup assistido pela Catuto',
+      'Ambiente cloud de alta performance',
+      'Onboarding técnico assistido pela equipe Catuto',
+      'Faturamento corporativo via Nota Fiscal e Contrato (Boleto/PIX anual)',
+      'Suporte prioritário via canal exclusivo (WhatsApp / Slack)',
+      'SLA de atendimento garantido',
     ],
     cta: {
       label: 'Falar com Consultor',

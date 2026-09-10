@@ -63,7 +63,7 @@ export default async function FlowPage() {
       {/* 4. Planos & Preços */}
       <FlowPricing />
 
-      {/* 5. Chamada de Fechamento para Iniciar Projeto Sob Medida */}
+      {/* 5. Banner de Adoção da Ferramenta Catuto Flow */}
       <FlowCta whatsappUrl={whatsappLink} />
     </div>
   )

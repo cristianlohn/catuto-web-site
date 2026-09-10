@@ -133,7 +133,7 @@ export function FlowShowcase() {
     },
     {
       id: 'retrabalho',
-      title: 'Retrabalho (Trava)',
+      title: 'Retrabalho',
       category: 'BLOCKED',
       count: 1,
       color: 'border-rose-500/50 bg-rose-500/10 text-rose-400',
@@ -291,15 +291,35 @@ export function FlowShowcase() {
               {columns.map((col) => (
                 <div
                   key={col.id}
-                  className="w-72 shrink-0 bg-zinc-950/70 rounded-xl border border-zinc-800/70 p-3 flex flex-col gap-3"
+                  className={`w-72 shrink-0 rounded-xl p-3 flex flex-col gap-3 transition-all ${
+                    col.id === 'retrabalho'
+                      ? 'bg-rose-950/20 border-2 border-rose-500/40 shadow-lg shadow-rose-950/30'
+                      : 'bg-zinc-950/70 border border-zinc-800/70'
+                  }`}
                 >
                   {/* Cabeçalho da Coluna */}
                   <div className="flex items-center justify-between px-1">
-                    <div className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${col.id === 'retrabalho' ? 'bg-rose-500 animate-pulse' : 'bg-zinc-600'}`} />
-                      <span className="text-xs font-bold text-zinc-200 tracking-wide">
+                    <div className="flex items-center gap-1.5">
+                      <span
+                        className={`w-2 h-2 rounded-full ${
+                          col.id === 'retrabalho'
+                            ? 'bg-rose-500 animate-pulse ring-2 ring-rose-500/40'
+                            : 'bg-zinc-600'
+                        }`}
+                      />
+                      <span
+                        className={`text-xs font-bold tracking-wide ${
+                          col.id === 'retrabalho' ? 'text-rose-200' : 'text-zinc-200'
+                        }`}
+                      >
                         {col.title}
                       </span>
+                      {col.id === 'retrabalho' && (
+                        <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-rose-500/25 text-rose-300 border border-rose-500/50 uppercase tracking-wider flex items-center gap-1">
+                          <AlertTriangle className="w-2.5 h-2.5 text-rose-400" />
+                          Alerta
+                        </span>
+                      )}
                     </div>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-mono font-bold ${col.color}`}>
                       {col.count}
