@@ -4,6 +4,7 @@ import { formatWhatsAppUrl } from '@/lib/masks'
 import { FlowHero } from '@/components/public/flow/FlowHero'
 import { FlowShowcase } from '@/components/public/flow/FlowShowcase'
 import { FlowBentoDiferenciais } from '@/components/public/flow/FlowBentoDiferenciais'
+import { FlowPricing } from '@/components/public/flow/FlowPricing'
 import { FlowCta } from '@/components/public/flow/FlowCta'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -59,7 +60,10 @@ export default async function FlowPage() {
       {/* 3. Bento Grid dos 3 Diferenciais de Engenharia */}
       <FlowBentoDiferenciais />
 
-      {/* 4. Chamada de Fechamento para Iniciar Projeto Sob Medida */}
+      {/* 4. Planos & Preços */}
+      <FlowPricing />
+
+      {/* 5. Chamada de Fechamento para Iniciar Projeto Sob Medida */}
       <FlowCta whatsappUrl={whatsappLink} />
     </div>
   )
